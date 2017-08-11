@@ -8,6 +8,8 @@ var RANKS = { RANK_1 : 0, RANK_2 : 1, RANK_3 : 2, RANK_4 : 3, RANK_5 : 4, RANK_6
 
 var COLOURS = { WHITE : 0, BLACK : 1, BOTH : 2 };  // this allows for each sideswitching with exclusive or: side ^= 1
 
+var CASTLEBIT = { WKCA : 1, WQCA : 2, BKCA : 4, BQCA : 8 };
+
 // there are two buffer ranks on each side, and a single buffer file on each side 
 // 0 - 9 buffer 
 // 10 - 19 buffer
