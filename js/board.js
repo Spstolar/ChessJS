@@ -18,7 +18,7 @@ GameBoard.castlePerm = 0;
 */
 GameBoard.material = new Array(2);  // WHITE, BLACK material 
 GameBoard.pceNum = new Array(13);  // indexed by piece for how many of that type there are
-GameBoard.pList = newArray(14 * 10);
+GameBoard.pList = new Array(14 * 10);
 GameBoard.posKey = 0;
 
 function GeneratePosKey() {
