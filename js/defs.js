@@ -38,6 +38,10 @@ var SQUARES = {  // I generated these in python with something like
 
 var BOOL = { FALSE : 0, TRUE : 1 };  // nice to use something like BOOL.FALSE rather than 0
 
+var MAXGAMEMOVES = 2048;
+var MAXPOSITIONMOVES = 256;
+var MAXDEPTH = 64;
+
 var FilesBrd = new Array(BRD_SQ_NUM);
 var RanksBrd = new Array(BRD_SQ_NUM);
 
