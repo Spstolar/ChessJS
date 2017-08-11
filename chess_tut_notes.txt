@@ -1,0 +1,10 @@
+Following tutorials from Bluefever Software https://www.youtube.com/watch?v=2eA0bD3wV3Q
+
+To represent the squares we flip boards and number left to right, top to bottom. Then each indexed square will have an integer representing the piece on that square. 
+
+Moves will be done by iterating until a boundary is hit. A way to simplify this is to add buffer locations for off-board locations. 
+
+Downloaded jquery compressed build: jquery-3.2.1.min.js
+
+
+
