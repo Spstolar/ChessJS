@@ -13,3 +13,4 @@ Part 3: First definitions for board and pieces.
 6: corrects colour to color and fixes s typo, starts up process of storing which pieces are left and where they are
 7: creates function to generate 32 bit random number for key hashing for storing game history
 8: creates board state key initialization
+9: creates arrays and methods for interchanging board indexing procedures

@@ -64,9 +64,20 @@ var PieceKeys = new Array(14 * 120); // we'll use the empty slots for en passant
 var SideKey;
 var CastleKeys = new Array (16);
 
+var Sq120ToSq64 = new Array(BRD_SQ_NUM);
+var Sq64ToSq120 = new Array(64);
+
 function RAND_32() {
 	// this creates a random 32-bit number (maybe just 31 bit actually) by putting together 4 different samplings of 8 bit numbers
 	//  return random int 1-255: Math.floor(Math.random()*255)+1)
 	// the << is for bit-shifint, e.g.: 000101 << 2 is 010100
 	return (Math.floor((Math.random()*255)+1) << 23) | (Math.floor((Math.random()*255)+1) << 16) | (Math.floor((Math.random()*255)+1) << 8) | Math.floor((Math.random()*255)+1);
+}
+
+function SQ64(sq120) {
+	return Sq120ToSq64[(sq120)];
+}
+
+function SQ120(sq64) {
+	return Sq64ToSq120[(sq64)];
 }
