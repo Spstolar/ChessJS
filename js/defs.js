@@ -35,3 +35,10 @@ var SQUARES = {  // I generated these in python with something like
 }
 
 var BOOL = { FALSE : 0, TRUE : 1 };  // nice to use something like BOOL.FALSE rather than 0
+
+var FilesBrd = new Array(BRD_SQ_NUM);
+var RanksBrd = new Array(BRD_SQ_NUM);
+
+function FR2SQ(f,r) { // convert a given file and rank to the square index 
+	return ( ( 21 + (f) ) + ( (r) * 10 ) );
+}

@@ -3,6 +3,32 @@ $(function() {  // this tests that JQuery is running
 	console.log("Main Init Called");
 });
 
+function InitFilesRanksBrd() {
+	var index = 0;
+	var file = FILES.FILE_A;
+	var rank = RANKS.RANK_1;
+	var sq = SQUARES.A1;
+	
+	// first set all squares to off board status 
+	for(index = 0; index < BRD_SQ_NUM; ++index) {
+		FilesBrd[index] = SQUARES.OFFBOARD;
+		RanksBrd[index] = SQUARES.OFFBOARD;
+	}
+	
+	// now fill them out correctly using the file-rank-to-square function
+	for(rank = RANKS.RANK_1; rank <= RANKS.RANK_8; ++rank) {
+		for(file = FILES.FILE_A; file <= FILES.FILE_H; ++file) {
+			sq = FR2SQ(file, rank);
+			FilesBrd[sq] = file;
+			RanksBrd[sq] = rank;
+		}
+	}
+	
+	console.log("FilesBrd[0]:" + FilesBrd[0] + " RanksBrd[0]:" + RanksBrd[0]);
+	console.log("FilesBrd[SQUARES.A1]:" + FilesBrd[SQUARES.A1] + " RanksBrd[SQUARES.A1]:" + RanksBrd[SQUARES.A1]);
+	console.log("FilesBrd[SQUARES.E8]:" + FilesBrd[SQUARES.E8] + " RanksBrd[SQUARES.E8]:" + RanksBrd[SQUARES.E8]);
+}
 function init() {
 	console.log("init() called");  // logging called functions to the browser is useful to see what is running and when 
+	InitFilesRanksBrd();
 }

@@ -6,5 +6,8 @@ Moves will be done by iterating until a boundary is hit. A way to simplify this 
 
 Downloaded jquery compressed build: jquery-3.2.1.min.js
 
+Part 3: First definitions for board and pieces.
+
+4: converting between square and file/rank
 
 
