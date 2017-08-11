@@ -60,6 +60,10 @@ var PieceRookQueen = [ BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE
 var PieceBishopQueen = [ BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE ];
 var PieceSlides = [ BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE ];
 
+var PieceKeys = new Array(14 * 120); // we'll use the empty slots for en passant
+var SideKey;
+var CastleKeys = new Array (16);
+
 function RAND_32() {
 	// this creates a random 32-bit number (maybe just 31 bit actually) by putting together 4 different samplings of 8 bit numbers
 	//  return random int 1-255: Math.floor(Math.random()*255)+1)

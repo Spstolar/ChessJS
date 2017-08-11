@@ -28,7 +28,22 @@ function InitFilesRanksBrd() {
 	console.log("FilesBrd[SQUARES.A1]:" + FilesBrd[SQUARES.A1] + " RanksBrd[SQUARES.A1]:" + RanksBrd[SQUARES.A1]);
 	console.log("FilesBrd[SQUARES.E8]:" + FilesBrd[SQUARES.E8] + " RanksBrd[SQUARES.E8]:" + RanksBrd[SQUARES.E8]);
 }
+
+function InitHashKeys() {
+	var index = 0;
+	
+	for(index = 0; index < 14*120; ++index) {
+		PieceKeys[index] = RAND_32();
+	}
+	
+	SideKey = RAND_32();
+	
+	for(index = 0; index < 16; ++index) {
+		CastleKeys[index] = RAND_32();
+	}
+}
 function init() {
 	console.log("init() called");  // logging called functions to the browser is useful to see what is running and when 
 	InitFilesRanksBrd();
+	InitHashKeys();
 }
