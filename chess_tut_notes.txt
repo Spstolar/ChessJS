@@ -10,4 +10,4 @@ Part 3: First definitions for board and pieces.
 
 4: converting between square and file/rank
 5: sets up board script, and starts castling definitions
-
+6: corrects colour to color and fixes s typo, starts up process of storing which pieces are left and where they are
