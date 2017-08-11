@@ -9,6 +9,7 @@ GameBoard.side = COLORS.WHITE;
 GameBoard.fiftyMove = 0;
 GameBoard.hisPly = 0;
 GameBoard.ply = 0;
+GameBoard.enPas = 0;
 GameBoard.castlePerm = 0;
 /* Storing castling perimissions as 8bit info
 
@@ -18,3 +19,4 @@ GameBoard.castlePerm = 0;
 GameBoard.material = new Array(2);  // WHITE, BLACK material 
 GameBoard.pceNum = new Array(13);  // indexed by piece for how many of that type there are
 GameBoard.pList = newArray(14 * 10);
+GameBoard.posKey = 0;
