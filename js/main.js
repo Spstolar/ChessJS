@@ -1,6 +1,8 @@
 $(function() {  // this tests that JQuery is running
 	init();
 	console.log("Main Init Called");
+	ParseFen(START_FEN);
+	PrintBoard();
 });
 
 function InitFilesRanksBrd() {

@@ -25,6 +25,50 @@ GameBoard.moveList = new Array(MAXDEPTH * MAXPOSITIONMOVES);
 GameBoard.moveScores = new Array(MAXDEPTH * MAXPOSITIONMOVES);
 GameBoard.moveListStart = new Array(MAXDEPTH);
 
+function PrintBoard() {
+	
+	var sq, file, rank, piece;
+	
+	console.log("\nGame Board:\n");
+	
+	/*
+	a8 -> h8
+	a7 -> h7
+	...
+	a1 -> h1
+	*/
+	
+	for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
+		var line = (RankChar[rank] + "  ");
+		for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
+			sq = FR2SQ(file,rank);
+			piece = GameBoard.pieces[sq];
+			line += (" " + PceChar[piece] + " ");
+		}
+		console.log(line);
+	}
+	
+	console.log("");
+	var line = "   ";
+	for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
+		line += (' ' + FileChar[file] + ' ');
+	}
+	
+	console.log(line);
+	console.log("side:" + SideChar[GameBoard.side] );
+	console.log("enPas:" + GameBoard.enPas);
+	line = "";
+	
+	if(GameBoard.castlePerm & CASTLEBIT.WKCA) line += 'K';
+	if(GameBoard.castlePerm & CASTLEBIT.WQCA) line += 'Q';
+	if(GameBoard.castlePerm & CASTLEBIT.BKCA) line += 'k';
+	if(GameBoard.castlePerm & CASTLEBIT.BQCA) line += 'q';
+	console.log("castle:" + line);
+	console.log("key:" + GameBoard.posKey.toString(16));
+	
+	
+}
+
 function GeneratePosKey() {
 	
 	var sq = 0;
@@ -91,7 +135,7 @@ function ParseFen(fen) {
 	
 	ResetBoard();
 	
-	var rank = RANKS.RANK_8;
+	var rank = RANKS.RANK_8;  // since FEN lists black first we start at rank 8
 	var file = FILES.FILE_A;
 	var piece = 0;
 	var count = 0;
@@ -99,9 +143,11 @@ function ParseFen(fen) {
 	var sq120 = 0;
 	var fenCnt = 0;
 	
+	// first parse the piece segment of the FEN string 
 	while ((rank >= RANKS.RANK_1) && fenCnt < fen.length) {
-		count = 1;
+		count = 1;  // for handling empty squares
 		switch (fen[fenCnt]) {
+			// if the character is a piece name assign the correct index to piece 
 			case 'p': piece = PIECES.bP; break;
 			case 'r': piece = PIECES.bR; break;
 			case 'n': piece = PIECES.bN; break;
@@ -115,6 +161,8 @@ function ParseFen(fen) {
 			case 'K': piece = PIECES.wK; break;
 			case 'Q': piece = PIECES.wQ; break;
 			
+			
+			// if the character is a number then set piece to the empty index and set count to the value of the character 
 			case '1':
 			case '2':
 			case '3':
@@ -127,6 +175,7 @@ function ParseFen(fen) {
 				count = fen[fenCnt].charCodeAt() - '0'.charCodeAt();
 				break;
 				
+			// if the character is a / or a blank then we need to move to the next rank or we have finished the piece segment 
 			case '/':
 			case ' ':
 				rank--;
@@ -139,14 +188,16 @@ function ParseFen(fen) {
 		}
 		
 		for (i = 0; i < count; i++) {
-			sq120 = ER2SQ(file,rank);
+			sq120 = FR2SQ(file,rank);
 			GameBoard.pieces[sq120] = piece;
 			file++;
 		}
 		fenCnt++ 
 	}
 	
+	// assign the side index using a ternary operator
 	GameBoard.side = (fen[fenCnt] == 'w') ? COLORS.WHITE : COLORS.BLACK;
+	fenCnt += 2;
 	
 	for (i = 0; i < 4; i++) {
 		if (fen[fenCnt] == ' ') {

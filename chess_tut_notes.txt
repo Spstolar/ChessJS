@@ -19,3 +19,4 @@ FEN = Forsyth-Edwards notation
 10: begins set up for inputting and parsing FEN, defines board reset method 
 11: sets up the function that parses the FEN string and handles the first part about piece placement.
 12: finishes setting up the FEN parse code.
+13: puts in board console printing function. 
