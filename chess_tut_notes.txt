@@ -17,3 +17,4 @@ Part 3: First definitions for board and pieces.
 
 FEN = Forsyth-Edwards notation
 10: begins set up for inputting and parsing FEN, defines board reset method 
+11: sets up the function that parses the FEN string and handles the first part about piece placement.
