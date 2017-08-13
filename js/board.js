@@ -95,6 +95,17 @@ function GeneratePosKey() {
 	return finalKey;
 }
 
+function PrintPieceLists() {
+	
+	var piece, pceNum;
+	
+	for (piece = PIECES.wP; piece <= PIECES.bK; ++piece) {
+		for (pceNum = 0; pceNum < GameBoard.pceNum[piece]; ++pceNum) {
+			console.log('Piece ' + PceChar[piece] + ' on ' + PrSq(GameBoard.pList[PCEINDEX(piece, pceNum)] ));
+		}
+	}
+}
+
 function UpdateListsMaterial() {
 	
 	var piece, sq, index, color;
@@ -115,7 +126,7 @@ function UpdateListsMaterial() {
 		sq = SQ120(index);
 		piece = GameBoard.pieces[sq];
 		if (piece != PIECES.EMPTY) {
-			console.log('piece ' + piece + ' on ' + sq);
+			// console.log('piece ' + piece + ' on ' + sq);
 			color = PieceCol[piece];
 			
 			GameBoard.material[color] += PieceVal[piece];
@@ -125,6 +136,7 @@ function UpdateListsMaterial() {
 		}
 	}
 	
+	PrintPieceLists();
 }
 
 function ResetBoard() {

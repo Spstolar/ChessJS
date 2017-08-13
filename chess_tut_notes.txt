@@ -22,3 +22,4 @@ FEN = Forsyth-Edwards notation
 13: puts in board console printing function. 
 14: removes some old logging and allows general console FEN printing using JQuery.
 15: adds method to update the piece list and transfer to it some of the board reset functionality.
+16: adds a method for going through an printing each piece on the board along with location.
