@@ -72,4 +72,5 @@ function init() {
 	console.log("init() called");  // logging called functions to the browser is useful to see what is running and when 
 	InitFilesRanksBrd();
 	InitHashKeys();
+	InitSq120To64();
 }

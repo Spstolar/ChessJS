@@ -21,3 +21,4 @@ FEN = Forsyth-Edwards notation
 12: finishes setting up the FEN parse code.
 13: puts in board console printing function. 
 14: removes some old logging and allows general console FEN printing using JQuery.
+15: adds method to update the piece list and transfer to it some of the board reset functionality.

@@ -95,6 +95,38 @@ function GeneratePosKey() {
 	return finalKey;
 }
 
+function UpdateListsMaterial() {
+	
+	var piece, sq, index, color;
+	
+	for(index = 0; index < 14 * 10; ++index) {
+		GameBoard.pList[index] = PIECES.EMPTY;
+	}
+	
+	for(index = 0; index < 2; ++index) {
+		GameBoard.material[index] = 0;
+	}
+	
+	for(index = 0; index < 13; ++index) {
+		GameBoard.pceNum[index] = 0;
+	}
+	
+	for (index = 0; index < 64; ++index) {
+		sq = SQ120(index);
+		piece = GameBoard.pieces[sq];
+		if (piece != PIECES.EMPTY) {
+			console.log('piece ' + piece + ' on ' + sq);
+			color = PieceCol[piece];
+			
+			GameBoard.material[color] += PieceVal[piece];
+			
+			GameBoard.pList[PCEINDEX(piece, GameBoard.pceNum[piece])] = sq;
+			GameBoard.pceNum[piece]++;
+		}
+	}
+	
+}
+
 function ResetBoard() {
 	
 	var index = 0;
@@ -105,18 +137,6 @@ function ResetBoard() {
 	
 	for(index = 0; index < 64; ++index) {
 		GameBoard.pieces[SQ120(index)] = PIECES.EMPTY;
-	}
-	
-	for(index = 0; index < 14 * 120; ++index) {
-		GameBoard.pList[index] = PIECES.EMPTY;
-	}
-	
-	for(index = 0; index < 2; ++index) {
-		GameBoard.material[index] = 0;
-	}
-	
-	for(index = 0; index < 13; ++index) {
-		GameBoard.pceNum[index] = 0;
 	}
 	
 	GameBoard.side = COLORS.BOTH;
@@ -222,7 +242,7 @@ function ParseFen(fen) {
 	}
 	
 	GameBoard.posKey = GeneratePosKey();
-	
+	UpdateListsMaterial();
 }
 
 
